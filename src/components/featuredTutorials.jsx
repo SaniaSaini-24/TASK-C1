@@ -38,6 +38,14 @@ function FeaturedTutorials() {
           />
         ))}
       </div>
+            <div className="text-center mt-8">
+        <button
+          type="button"
+          className="px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition"
+        >
+          See All Tutorials
+        </button>
+      </div>
     </section>
   )
 }

@@ -43,6 +43,15 @@ function FeaturedArticles() {
           />
         ))}
       </div>
+
+            <div className="text-center mt-8">
+        <button
+          type="button"
+          className="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition"
+        >
+          See All Articles
+        </button>
+      </div>
     </section>
   )
 }
