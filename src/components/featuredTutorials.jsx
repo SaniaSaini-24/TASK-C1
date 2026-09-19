@@ -6,19 +6,19 @@ function FeaturedTutorials() {
       title: "React Fundamentals",
       description:
         "Learn the basic concepts of React components, props and JSX.",
-      image: "/img/react.png",
+      image: "/img/react.jpg",
     },
     {
       title: "Introduction to Tailwind CSS",
       description:
         "Learn how to create responsive user interfaces using Tailwind CSS utility classes.",
-      image: "/img/tailwind.jpg",
+      image: "/img/ai.jpg",
     },
     {
       title: "JavaScript Basics",
       description:
         "Understand important JavaScript concepts used when building modern web applications.",
-      image: "/img/js_basic.jpg",
+      image: "/img/cloudcomp.jpg",
     },
   ]
 

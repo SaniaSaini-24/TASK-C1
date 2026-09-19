@@ -7,6 +7,7 @@ import Contact from "./components/contact.jsx"
 import Hero from "./components/hero.jsx"
 import Gallery from "./components/gallery.jsx"
 import About from "./components/about.jsx"
+import Projects from "./components/projects.jsx"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
 
       <main>
+        <Projects />
         <FeaturedArticles />
         <FeaturedTutorials />
         <Gallery />

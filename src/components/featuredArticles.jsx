@@ -3,47 +3,37 @@ import ArticleCard from "./articleCard"
 function FeaturedArticles() {
   const articles = [
     {
-      title: "Universal Text Converter",
+      title: "Getting Started with React",
       description:
-        "A tool that converts text between different formats and languages.",
-      image: "/img/translation.jpg",
+        "Learn how React components, JSX and props are used to build modern web applications.",
+      image: "/img/react.png"
     },
     {
-      title: "Enhancing Transaction Management",
+      title: "Understanding Artificial Intelligence",
       description:
-        "A cloud-native approach using machine learning to predict transaction conflicts and system failures.",
-      image: "/img/transaction.jpg",
+        "An introduction to artificial intelligence and how it is used for learning and decision making.",
+      image: "/img/tailwind.jpg"
     },
     {
-      title: "Deepfake Detection System",
+      title: "Introduction to Cloud Computing",
       description:
-        "A project that uses artificial intelligence to detect whether an image is fake or real.",
-      image: "/img/deepfake.jpg",
-    },
+        "Learn how cloud computing provides access to computing resources and applications over the internet.",
+      image: "/img/js_basic.jpg"
+    }
   ]
 
-  {articles.map((article, index) => (
-  <ArticleCard
-    key={index}
-    title={article.title}
-    description={article.description}
-    image={article.image}
-  />
-))}
-
   return (
-    <section id="articles" className="max-w-7xl mx-auto px-6 py-12">
+    <section
+      id="articles"
+      className="max-w-5xl mx-auto px-6 py-12"
+    >
       <div className="text-center mb-10">
-  <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-    Featured Articles
-  </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          Featured Articles
+        </h2>
+      </div>
 
-  <p className="mt-3 text-gray-600">
-    Explore our latest articles and projects.
-  </p>
-</div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {articles.map((article, index) => (
           <ArticleCard
             key={index}
