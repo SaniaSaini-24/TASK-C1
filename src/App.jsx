@@ -1,11 +1,11 @@
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/navbar.jsx';
+import Navbar from './components/navbar';
 import Footer from './components/footer';
 import HomePage from './routes/HomePage';
 import LoginPage from './routes/LoginPage';
 import SignupPage from './routes/SignupPage';
-import './App.css';
 
 function App() {
   return (

@@ -1,13 +1,17 @@
+// src/routes/HomePage.jsx
 import React from 'react';
+import Hero from '../components/hero';
+import FeaturedArticles from '../components/featuredArticles';
+import FeaturedTutorials from '../components/featuredTutorials';
+import NewsLetter from '../components/newsLetter';
 
 function HomePage() {
   return (
-    <div className="homepage-content">
-      {/* Insert your existing P3 banner image, featured articles & tutorials grid here */}
-      <section style={{ textAlign: 'center', padding: '50px 20px' }}>
-        <h2>Featured Articles & Tutorials</h2>
-        <p>Welcome back to DEV@Deakin!</p>
-      </section>
+    <div className="homepage">
+      <Hero />
+      <FeaturedArticles />
+      <FeaturedTutorials />
+      <NewsLetter />
     </div>
   );
 }
