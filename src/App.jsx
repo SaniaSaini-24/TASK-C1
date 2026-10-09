@@ -1,35 +1,28 @@
-import Navbar from "./components/navbar.jsx"
-import FeaturedArticles from "./components/featuredArticles.jsx"
-import FeaturedTutorials from "./components/featuredTutorials.jsx"
-import Newsletter from "./components/newsLetter.jsx"
-import Footer from "./components/footer.jsx"
-import Contact from "./components/contact.jsx"
-import Hero from "./components/hero.jsx"
-import Gallery from "./components/gallery.jsx"
-import About from "./components/about.jsx"
-import Projects from "./components/projects.jsx"
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar.jsx';
+import Footer from './components/footer';
+import HomePage from './routes/HomePage';
+import LoginPage from './routes/LoginPage';
+import SignupPage from './routes/SignupPage';
+import './App.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Navbar />
-
-      <Hero />
-      <About />
-
-
-      <main>
-        <Projects />
-        <FeaturedArticles />
-        <FeaturedTutorials />
-        <Gallery />
-        <Contact />
-        <Newsletter />
-      </main>
-
-      <Footer />
-    </div>
-  )
+    <Router>
+      <div className="app-container">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
