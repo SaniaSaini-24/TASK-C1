@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -10,6 +9,7 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -26,11 +26,8 @@ function LoginPage() {
 
       navigate('/', { replace: true });
     } catch (error) {
-      console.error('Login error:', error.code, error.message);
-
-      setErrorMsg(
-        'Invalid email or password. Please try again.'
-      );
+      console.error('Login error:', error.code);
+      setErrorMsg('Invalid email or password. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -39,7 +36,10 @@ function LoginPage() {
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
+       
+
         <div className="auth-top-action">
+        
           <Link to="/signup" className="top-action-link">
             Sign up
           </Link>
@@ -57,9 +57,9 @@ function LoginPage() {
             <input
               id="loginEmail"
               type="email"
-              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
@@ -68,9 +68,9 @@ function LoginPage() {
             <input
               id="loginPassword"
               type="password"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 

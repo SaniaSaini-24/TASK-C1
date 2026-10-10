@@ -1,160 +1,48 @@
-Project Overview
+# SIT313 Task P4 – Login and Registration Website
 
-This project is the React version of my DEV@Deakin website. The website
-was migrated from my previous HTML, CSS and JavaScript task into a React
-and Vite project.
+## Introduction
 
-The main purpose of this task was to learn how React components can be
-used to organise a frontend application and how reusable components can
-make the code easier to maintain.
+This project is a website developed using React. In this task, I added login and registration functionality using Firebase. Users can create an account, log in with their email and password, and their details are saved in the Firestore database.
 
-Technologies Used
+## Technologies Used
 
-React
+- React
+- JavaScript
+- Firebase Authentication
+- Cloud Firestore
+- CSS
+- Node.js and Express for the newsletter feature
 
-Vite
+## Features
 
-JavaScript / JSX
+### 1. User Registration
+Users can register by entering their first name, last name, email, password, and confirm password. The website checks that the details are valid and that both passwords match. After successful registration, the user's information is saved in Firestore.
 
-Tailwind CSS
+### 2. User Login
+Registered users can log in using their email and password. If the login details are incorrect, an error message is displayed. After successful login, the user is redirected to the home page.
 
-HTML
+### 3. Home Page
+The website includes the existing home page and its components, such as the navigation bar, articles, tutorials, and footer.
 
-CSS
+### 4. Newsletter
+The project also includes a newsletter feature. It uses a backend server and SendGrid to send a welcome email to subscribers.
 
-GitHub
+## Firebase Setup
 
-Main Features
+I connected the website to my Firebase project. Firebase Authentication is used for registering and logging in users, while Cloud Firestore stores their basic profile information.
 
-The website contains:
+The Firebase configuration is stored in a local `.env` file.
 
-Navigation Bar
+## How to Run the Project
 
-Hero Section
+First, install the project dependencies and start the website using the instructions provided in the project setup.
 
-About Section
+The newsletter feature requires the backend server to be running separately and needs valid SendGrid configuration.
 
-Featured Articles
+## Testing
 
-Projects
+I tested the registration and login features. I also checked that the registered user's details were saved in Firestore. Incorrect login details were tested to check that an error message appeared.
 
-Featured Tutorials
+## Conclusion
 
-Gallery
-
-Contact
-
-Newsletter
-
-Footer
-
-React Components
-
-The website is divided into separate React components:
-
-navbar.jsx
-
-hero.jsx
-
-about.jsx
-
-featuredArticles.jsx
-
-projects.jsx
-
-featuredTutorials.jsx
-
-gallery.jsx
-
-contact.jsx
-
-newsLetter.jsx
-
-footer.jsx
-
-articleCard.jsx
-
-tutorialCard.jsx
-
-App.jsx works as the main parent component and combines the different
-sections.
-
-Featured Articles
-
-The Featured Articles section stores article information in an array of
-objects. Each article contains a title, description and image.
-
-The map() function is used to display the articles dynamically using
-the reusable ArticleCard component.
-
-The three featured articles are:
-
-Getting Started with React
-
-Understanding Artificial Intelligence
-
-Introduction to Cloud Computing
-
-Projects
-
-A separate Projects section was created for my personal projects:
-
-Universal Text Converter
-
-Enhancing Transaction Management with Cloud Native Architecture and
-Machine Learning
-
-Deepfake Detection System
-
-Each project contains a title, description and image.
-
-Featured Tutorials
-
-The Featured Tutorials section uses reusable tutorial cards. Each
-tutorial contains a title, description, image and button.
-
-Navigation
-
-Navigation links are connected to page sections using section IDs.
-Smooth scrolling was also added.
-
-Examples:
-
-Home → About section
-
-Articles → Featured Articles
-
-Tutorials → Featured Tutorials
-
-Contact Us → Contact section
-
-Footer
-
-The footer was designed based on the DEV@Deakin example.
-
-It contains:
-
-Explore
-
-Support
-
-Stay Connected
-
-Social media buttons
-
-DEV@Deakin information
-
-Privacy Policy
-
-Terms
-
-Code of Conduct
-
-Newsletter
-
-The newsletter section was migrated into the React frontend from the
-previous task.
-
-Users can enter their email address and submit the form. The existing
-backend functionality is kept separately because P3 focuses on the
-frontend migration to React.
+This task helped me understand how to connect a React website with Firebase Authentication and Firestore. I also learned how to handle form validation, display error messages, and manage user registration and login.

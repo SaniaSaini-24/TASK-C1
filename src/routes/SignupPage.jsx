@@ -1,39 +1,36 @@
-
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-  createUserWithEmailAndPassword
-} from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 import './SignupPage.css';
 
 function SignupPage() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
-  const handleCreate = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     setErrorMsg('');
 
-    if (!firstName.trim() || !lastName.trim()) {
-      setErrorMsg('Please enter your first and last name.');
+    if (!name.trim()) {
+      setErrorMsg('Please enter your name.');
+      return;
+    }
+
+    if (password.length < 6) {
+      setErrorMsg('Password must be at least 6 characters long.');
       return;
     }
 
     if (password !== confirmPassword) {
       setErrorMsg('Passwords do not match.');
-      return;
-    }
-
-    if (password.length < 6) {
-      setErrorMsg('Password must be at least 6 characters.');
       return;
     }
 
@@ -46,31 +43,23 @@ function SignupPage() {
         password
       );
 
-      const user = userCredential.user;
-
-      await setDoc(doc(db, 'users', user.uid), {
-        firstName: firstName.trim(),
-        lastName: lastName.trim(),
-        email: user.email
+      await setDoc(doc(db, 'users', userCredential.user.uid), {
+        name: name.trim(),
+        email: userCredential.user.email
       });
 
       navigate('/login', { replace: true });
     } catch (error) {
-      console.error('Registration error:', error.code, error.message);
+      console.error('Signup error:', error.code);
 
       if (error.code === 'auth/email-already-in-use') {
-        setErrorMsg('This email is already registered. Please log in.');
+        setErrorMsg('This email is already registered.');
       } else if (error.code === 'auth/invalid-email') {
         setErrorMsg('Please enter a valid email address.');
       } else if (error.code === 'auth/weak-password') {
         setErrorMsg('Please choose a stronger password.');
-      } else if (error.code === 'permission-denied' ||
-                 error.code === 'firestore/permission-denied') {
-        setErrorMsg(
-          'Your account may have been created, but saving your profile failed. Please contact support.'
-        );
       } else {
-        setErrorMsg('Failed to create account. Please try again.');
+        setErrorMsg('Registration failed. Please try again.');
       }
     } finally {
       setLoading(false);
@@ -78,84 +67,75 @@ function SignupPage() {
   };
 
   return (
-    <div className="signup-wrapper">
-      <div className="signup-card">
-        <h3 className="signup-title">
-          Create a DEV@Deakin Account
-        </h3>
+    <div className="auth-wrapper">
+      <div className="auth-card">
+        <h2>Create a DEV@Deakin Account</h2>
 
         {errorMsg && (
-          <div className="signup-error-banner" role="alert">
+          <div className="auth-error-banner" role="alert">
             {errorMsg}
           </div>
         )}
 
-        <form onSubmit={handleCreate} className="auth-form">
-          <div className="signup-field">
-            <label htmlFor="firstName">First name*</label>
+        <form onSubmit={handleSignup} className="auth-form">
+          <div className="form-group">
+            <label htmlFor="signupName">Name*</label>
             <input
-              id="firstName"
+              id="signupName"
               type="text"
+              value={name}
+              onChange={(e) =>
+                setName(e.target.value.replace(/[0-9]/g, ''))
+              }
               required
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
 
-          <div className="signup-field">
-            <label htmlFor="lastName">Last name*</label>
+          <div className="form-group">
+            <label htmlFor="signupEmail">Email*</label>
             <input
-              id="lastName"
-              type="text"
-              required
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-
-          <div className="signup-field">
-            <label htmlFor="email">Email*</label>
-            <input
-              id="email"
+              id="signupEmail"
               type="email"
-              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
-          <div className="signup-field">
-            <label htmlFor="password">Password*</label>
+          <div className="form-group">
+            <label htmlFor="signupPassword">Password*</label>
             <input
-              id="password"
+              id="signupPassword"
               type="password"
-              minLength={6}
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 
-          <div className="signup-field">
-            <label htmlFor="confirmPassword">Confirm password*</label>
+          <div className="form-group">
+            <label htmlFor="confirmPassword">
+              Confirm password*
+            </label>
             <input
               id="confirmPassword"
               type="password"
-              minLength={6}
-              required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
           </div>
 
           <button
             type="submit"
-            className="signup-btn"
+            className="auth-submit-btn"
             disabled={loading}
           >
-            {loading ? 'Creating...' : 'Create'}
+            {loading ? 'Creating account...' : 'Create'}
           </button>
         </form>
+
+       
       </div>
     </div>
   );
