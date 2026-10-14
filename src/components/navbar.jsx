@@ -13,7 +13,9 @@ function Navbar() {
         <input type="text" placeholder="Search..." />
       </div>
       <div className="navbar-actions">
-        <button className="nav-btn post-btn">Post</button>
+        <Link to="/post" className="nav-btn post-btn">
+  Post
+</Link>
         <Link to="/login" className="nav-btn login-link">Login</Link>
       </div>
     </nav>

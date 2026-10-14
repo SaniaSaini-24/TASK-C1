@@ -1,0 +1,186 @@
+.post-page {
+    width: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+}
+
+.post-panel {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 25px 30px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+}
+
+.post-heading {
+    margin: 0 0 25px;
+    text-align: center;
+    color: #222222;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.post-type-fieldset {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 0 0 25px;
+    padding: 15px;
+    border: 1px solid #cccccc;
+}
+
+.post-type-fieldset legend {
+    padding: 0 5px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.post-type-fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #333333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.post-type-fieldset input[type="radio"] {
+    margin: 0;
+    accent-color: #3878f9;
+}
+
+.post-subheading {
+    margin: 0 0 8px;
+    color: #222222;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.post-help {
+    margin: 0 0 22px;
+    color: #666666;
+    font-size: 13px;
+}
+
+.post-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.post-field label {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.post-field input[type="text"],
+.post-field textarea {
+    display: block;
+    width: 100%;
+    padding: 11px 12px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #222222;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.post-field input[type="text"] {
+    min-height: 40px;
+}
+
+.post-field textarea {
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.post-field input[type="text"]:focus,
+.post-field textarea:focus {
+    outline: none;
+    border-color: #3878f9;
+}
+
+.post-field input::placeholder,
+.post-field textarea::placeholder {
+    color: #888888;
+    font-size: 13px;
+}
+
+.post-field small {
+    color: #666666;
+    font-size: 12px;
+}
+
+.post-error {
+    margin: 12px 0;
+    padding: 10px 12px;
+    border: 1px solid #e0a5a5;
+    background-color: #fff0f0;
+    color: #b42318;
+    font-size: 14px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.post-submit-button {
+    min-width: 100px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 3px;
+    background-color: #3878f9;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.post-submit-button:hover {
+    background-color: #2865df;
+}
+
+.post-submit-button:focus-visible {
+    outline: 2px solid #222222;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .post-page {
+        padding: 20px 10px;
+    }
+
+    .post-panel {
+        padding: 20px 15px;
+    }
+
+    .post-heading {
+        font-size: 23px;
+    }
+
+    .post-type-fieldset {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .post-subheading {
+        font-size: 17px;
+    }
+
+    .post-actions {
+        justify-content: stretch;
+    }
+
+    .post-submit-button {
+        width: 100%;
+    }
+}
