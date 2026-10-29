@@ -2,7 +2,7 @@
 import React , {useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, signOut, onAuthStateChanged } from '../firebase';
-import './navbar.css';
+import './Navbar.css';
 
 function Navbar() {
   const [user, setUser] = React.useState(null);
