@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Post.css";
+import "./post.css";
 
 function Post() {
     const [postType, setPostType] = useState("question");

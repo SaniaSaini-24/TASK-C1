@@ -32,12 +32,43 @@ function LoginPage() {
       setLoading(false);
     }
   };
+  const handleGoogleLogin = async () => {
+  setErrorMsg('');
+  setLoading(true);
+
+  try {
+    await signInWithPopup(auth, provider);
+    navigate('/', { replace: true });
+  } catch (error) {
+    console.error('Google login error:', error.code);
+    setErrorMsg('Google login failed. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+};
+const handleGithubLogin = async () => {
+  setErrorMsg('');
+  setLoading(true);
+
+  try {
+    await signInWithPopup(auth, githubProvider);
+    navigate('/', { replace: true });
+  } catch (error) {
+    console.error('GitHub login error:', error.code, error.message);
+    setErrorMsg(
+      error.code === 'auth/account-exists-with-different-credential'
+        ? 'This email already uses another login method. Please sign in using that method.'
+        : 'GitHub login failed. Please try again.'
+    );
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
-       
-
         <div className="auth-top-action">
         
           <Link to="/signup" className="top-action-link">
@@ -82,7 +113,27 @@ function LoginPage() {
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
+        
+
+        <button
+          type="button"
+          className="google-login-btn"
+          onClick={handleGoogleLogin}
+          disabled={loading}
+        >
+          {loading ? 'Please wait...' : 'Login with Google'}
+        </button>
+
+        <button
+          type="button"
+          className="github-login-btn"
+          onClick={handleGithubLogin}
+          disabled={loading}
+        >
+          {loading ? 'Please wait...' : 'Login with GitHub'}
+        </button>
       </div>
+      
     </div>
   );
 }

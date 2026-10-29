@@ -10,7 +10,7 @@ import SignupPage from './routes/SignupPage.jsx';
 import About from './components/about.jsx';
 import ArticleCard from './components/featuredArticles.jsx';
 import TutorialCard from './components/featuredTutorials.jsx';
-
+import Post from './routes/post.jsx';
 function App() {
   return (
     <Router>
@@ -23,7 +23,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/articles" element={<ArticleCard />} />
             <Route path="/tutorials" element={<TutorialCard />} />
-            <Route path="/post" element={<PostPage />} />
+            <Route path="/post" element={<Post />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
           </Routes>
