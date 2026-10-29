@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import { signInWithEmailAndPassword , signInWithPopup } from 'firebase/auth';
+import { auth , provider , githubProvider} from '../firebase';
 import './LoginPage.css';
 
 function LoginPage() {
@@ -46,6 +46,9 @@ function LoginPage() {
     setLoading(false);
   }
 };
+
+
+
 const handleGithubLogin = async () => {
   setErrorMsg('');
   setLoading(true);
@@ -64,6 +67,7 @@ const handleGithubLogin = async () => {
     setLoading(false);
   }
 };
+
 
 
   return (
